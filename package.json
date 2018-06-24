@@ -96,7 +96,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "start": "gulp develop --continue-on-error --skip-minification --skip-standalone",
+    "start": "gulp develop --continue-on-error --skip-standalone",
     "fix:lint": "standard --fix",
     "test": "npm run build && npm run check",
     "build": "gulp build",
@@ -110,5 +110,8 @@
     "release": "node release"
   },
   "bugs": "https://github.com/sweetalert2/sweetalert2/issues",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "gulp-uglify": "^3.0.0"
+  }
 }

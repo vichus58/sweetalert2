@@ -2,7 +2,6 @@ const gulp = require('gulp')
 const $ = require('gulp-load-plugins')()
 const babel = require('rollup-plugin-babel')
 const json = require('rollup-plugin-json')
-const minify = require('gulp-babel-minify')
 const merge = require('merge2')
 const browserSync = require('browser-sync').create()
 const pify = require('pify')
@@ -67,9 +66,9 @@ if (typeof window !== 'undefined' && window.Sweetalert2){\
       }
     })
     .pipe(gulp.dest('dist'))
-    .pipe($.if(!skipMinification, minify({
-      mangle: {
-        keepClassName: true
+    .pipe($.if(!skipMinification, $.uglify({
+      compress: {
+        unused: false
       }
     })))
     .pipe($.if(!skipMinification, $.rename('sweetalert2.min.js')))
